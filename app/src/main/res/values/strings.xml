@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">微信红包</string>
+    <string name="app_name">Red Packet</string>
     <string name="app_version">v4.0</string>
-    <string name="app_description">∠( ᐛ 」∠)_使用指南∠( ᐛ 」∠)_\n\n ○ 狠戳插件开关\n ○ 回到微信聊天\n ○ 坐等红包进账\n\n 遇到问题, 欢迎通过 GitHub Issue 反馈~\n https://github.com/geeeeeeeeek/WeChatLuckyMoney</string>
+    <string name="app_description">∠( ᐛ 」∠)_使用指南∠( ᐛ 」∠)_\n\n ○ 狠戳插件开关\n ○ 回到微信聊天\n ○ 坐等红包进账</string>
     <string name="preference">偏好设置</string>
     <string name="update_error">遇到一些问题,请前往GitHub手动更新喵(ฅ´ω`ฅ)</string>
     <string name="update_new_seg1">发现新版本(</string>
@@ -45,7 +45,7 @@
     <string name="help_and_feedback">帮助与反馈</string>
     <string name="help_hint">前往GitHub项目主页提交issue</string>
     <string name="labs">实验功能</string>
-    <string name="snatch_on_lockscreen">息屏抢红包</string>
+    <string name="snatch_on_lockscreen">黑屏了还抢红包</string>
     <string name="snatch_on_lockscreen_hint">保持30分钟后台活跃,可能会极大增加电量消耗,请谨慎使用</string>
     <string name="auto_reply">拆开红包后自动回复</string>
     <string name="checking_new_version">正在检查新版本……</string>
@@ -53,5 +53,6 @@
     <string name="delay_delay">延迟</string>
     <string name="delay_open">拆开红包</string>
     <string name="delay_sec">秒</string>
+    <string name="delay_milliseconds">毫秒</string>
     <string name="delay_then">然后</string>
 </resources>

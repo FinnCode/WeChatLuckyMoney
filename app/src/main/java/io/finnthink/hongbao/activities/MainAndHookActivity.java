@@ -1,4 +1,4 @@
-package xyz.monkeytong.hongbao.activities;
+package io.finnthink.hongbao.activities;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.TargetApi;
@@ -17,14 +17,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.tencent.bugly.Bugly;
-import xyz.monkeytong.hongbao.R;
-import xyz.monkeytong.hongbao.utils.ConnectivityUtil;
-import xyz.monkeytong.hongbao.utils.UpdateTask;
+import io.finnthink.hongbao.R;
+import io.finnthink.hongbao.utils.ConnectivityUtil;
+import io.finnthink.hongbao.utils.UpdateTask;
 
 import java.util.List;
 
 
-public class MainActivity extends Activity implements AccessibilityManager.AccessibilityStateChangeListener {
+public class MainAndHookActivity extends Activity implements AccessibilityManager.AccessibilityStateChangeListener {
 
     //开关切换按钮
     private TextView pluginStatusText;
@@ -137,7 +137,7 @@ public class MainActivity extends Activity implements AccessibilityManager.Acces
     }
 
     /**
-     * 更新当前 HongbaoService 显示状态
+     * 更新当前 WeChatService 显示状态
      */
     private void updateServiceStatus() {
         if (isServiceEnabled()) {
@@ -150,7 +150,7 @@ public class MainActivity extends Activity implements AccessibilityManager.Acces
     }
 
     /**
-     * 获取 HongbaoService 是否启用状态
+     * 获取 WeChatService 是否启用状态
      *
      * @return
      */
@@ -158,7 +158,7 @@ public class MainActivity extends Activity implements AccessibilityManager.Acces
         List<AccessibilityServiceInfo> accessibilityServices =
                 accessibilityManager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC);
         for (AccessibilityServiceInfo info : accessibilityServices) {
-            if (info.getId().equals(getPackageName() + "/.services.HongbaoService")) {
+            if (info.getId().equals(getPackageName() + "/.services.WeChatService")) {
                 return true;
             }
         }

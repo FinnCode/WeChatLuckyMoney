@@ -1,4 +1,4 @@
-package xyz.monkeytong.hongbao.utils;
+package io.finnthink.hongbao.utils;
 
 import android.graphics.Rect;
 import android.view.accessibility.AccessibilityNodeInfo;

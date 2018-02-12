@@ -1,4 +1,4 @@
-package xyz.monkeytong.hongbao.activities;
+package io.finnthink.hongbao.activities;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -16,8 +16,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
-import xyz.monkeytong.hongbao.R;
-import xyz.monkeytong.hongbao.utils.DownloadUtil;
+import io.finnthink.hongbao.R;
+import io.finnthink.hongbao.utils.DownloadUtil;
 
 /**
  * Created by Zhongyi on 1/19/16.

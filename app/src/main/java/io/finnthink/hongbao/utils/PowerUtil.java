@@ -1,4 +1,4 @@
-package xyz.monkeytong.hongbao.utils;
+package io.finnthink.hongbao.utils;
 
 import android.app.KeyguardManager;
 import android.content.Context;

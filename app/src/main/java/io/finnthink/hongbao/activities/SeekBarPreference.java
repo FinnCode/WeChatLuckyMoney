@@ -1,4 +1,4 @@
-package xyz.monkeytong.hongbao.activities;
+package io.finnthink.hongbao.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import xyz.monkeytong.hongbao.R;
+import io.finnthink.hongbao.R;
 
 /**
  * Created by Zhongyi on 2/3/16.
@@ -84,7 +84,7 @@ public class SeekBarPreference extends DialogPreference {
         if (delay == 0) {
             this.textView.setText(getContext().getString(R.string.delay_instantly) + hintText);
         } else {
-            this.textView.setText(getContext().getString(R.string.delay_delay) + delay + getContext().getString(R.string.delay_sec) + getContext().getString(R.string.delay_then) + hintText);
+            this.textView.setText(getContext().getString(R.string.delay_delay) + delay + getContext().getString(R.string.delay_milliseconds) + getContext().getString(R.string.delay_then) + hintText);
         }
     }
 }

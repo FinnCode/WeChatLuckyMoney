@@ -1,4 +1,4 @@
-package xyz.monkeytong.hongbao.utils;
+package io.finnthink.hongbao.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +12,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
-import xyz.monkeytong.hongbao.R;
-import xyz.monkeytong.hongbao.activities.SettingsActivity;
-import xyz.monkeytong.hongbao.activities.WebViewActivity;
+import io.finnthink.hongbao.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
