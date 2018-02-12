@@ -2,6 +2,7 @@ package io.finnthink.hongbao.services;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.GestureDescription;
+import android.app.Instrumentation;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.ComponentName;
@@ -15,6 +16,7 @@ import android.os.Parcelable;
 import android.graphics.Path;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.util.DisplayMetrics;
@@ -125,6 +127,7 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
                 mMutex = true;
 
                 mReceiveNode.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                toast("发现红包！发现红包！发现红包！");
                 mLuckyMoneyReceived = false;
                 mLuckyMoneyPicked = true;
             }
@@ -156,6 +159,7 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
                         mMutex = false;
                         mLuckyMoneyPicked = false;
                         mUnpackCount = 0;
+                        back();
                         super.onCompleted(gestureDescription);
                     }
 
@@ -169,6 +173,11 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
 
             }
         }
+    }
+
+    private void back() {
+        Instrumentation inst= new Instrumentation();
+        inst.sendKeyDownUpSync(KeyEvent. KEYCODE_BACK);
     }
 
     private void setCurrentActivityName(AccessibilityEvent event) {
@@ -229,7 +238,7 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
                 /* 清除signature,避免进入会话后误判 */
                 signature.cleanSignature();
                 notification.contentIntent.send();
-                toast("检测到[微信红包]");
+                toast("发现有人发[微信红包]");
             } catch (PendingIntent.CanceledException e) {
                 e.printStackTrace();
             }
