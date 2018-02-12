@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Parcelable;
 import android.graphics.Path;
 import android.preference.PreferenceManager;
@@ -16,6 +18,7 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.util.DisplayMetrics;
+import android.widget.Toast;
 
 import io.finnthink.hongbao.utils.HongbaoSignature;
 import io.finnthink.hongbao.utils.PowerUtil;
@@ -46,7 +49,23 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
     private PowerUtil powerUtil;
     private SharedPreferences sharedPreferences;
 
+    private Handler handler = null;
+
     private static final int ramdonSeed = 50;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        handler = new Handler(Looper.getMainLooper());
+    }
+
+    private void toast(final CharSequence text) {
+        handler.post(new Runnable() {
+            public void run() {
+                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     /**
      * AccessibilityEvent
@@ -113,6 +132,7 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
     }
 
     private void openPacket() {
+        toast("果断开抢");
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         float width = metrics.widthPixels;
         float height = metrics.heightPixels;
@@ -208,8 +228,8 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
             try {
                 /* 清除signature,避免进入会话后误判 */
                 signature.cleanSignature();
-
                 notification.contentIntent.send();
+                toast("检测到[微信红包]");
             } catch (PendingIntent.CanceledException e) {
                 e.printStackTrace();
             }
