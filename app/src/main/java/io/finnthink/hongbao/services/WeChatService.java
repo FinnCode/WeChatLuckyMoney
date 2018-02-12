@@ -156,18 +156,22 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
                     @Override
                     public void onCompleted(GestureDescription gestureDescription) {
                         Log.d("test", "onCompleted");
-                        mMutex = false;
-                        mLuckyMoneyPicked = false;
-                        mUnpackCount = 0;
-                        back();
+                        complete();
                         super.onCompleted(gestureDescription);
                     }
 
                     @Override
                     public void onCancelled(GestureDescription gestureDescription) {
                         Log.d("test", "onCancelled");
-                        mMutex = false;
+                        complete();
                         super.onCancelled(gestureDescription);
+                    }
+
+                    private void complete() {
+                        mMutex = false;
+                        mLuckyMoneyPicked = false;
+                        mUnpackCount = 0;
+                        back();
                     }
                 }, null);
 
@@ -176,8 +180,8 @@ public class WeChatService extends AccessibilityService implements SharedPrefere
     }
 
     private void back() {
-        Instrumentation inst= new Instrumentation();
-        inst.sendKeyDownUpSync(KeyEvent. KEYCODE_BACK);
+        Instrumentation inst = new Instrumentation();
+        inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
     }
 
     private void setCurrentActivityName(AccessibilityEvent event) {
